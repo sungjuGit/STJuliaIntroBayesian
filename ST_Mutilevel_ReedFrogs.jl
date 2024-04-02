@@ -82,7 +82,7 @@ annotate!([
 
 
 p1 = plot(xlim=(-3, 4), xlab="Log-odds survival", ylab="Density");
-for r ∈ single(eachrow(post_df), 100)
+for r ∈ first(eachrow(post_df), 100)
     plot!(Normal(r.ā, r.σ), c=:black, alpha=0.2)
 end
 p1
