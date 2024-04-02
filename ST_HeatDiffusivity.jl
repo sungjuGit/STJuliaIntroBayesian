@@ -1,4 +1,4 @@
-using Turing, StatsPlots, DifferentialEquations
+using Turing, StatsPlots, DifferentialEquations, LinearAlgebra
 
 # Define the parameters
 true_D = 0.25
@@ -58,8 +58,10 @@ p
     problem = ODEProblem(discretized_diffusion!, u0, tspan, param)
     prediction = solve(problem, Tsit5(), saveat=t_domain)
 
-    # Define the likelihood for the observed data
-    observed_data ~ arraydist(Normal.(prediction, σ))
+    # Define the likelihood for the observed data    #observed_data ~ arraydist(Normal.(prediction, σ))
+    for i in 1:length(prediction)
+        observed_data[:, i] ~ MvNormal(prediction[i], σ^2 * I)
+    end
     
 end
 
