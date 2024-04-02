@@ -28,7 +28,7 @@ N = 100
 α = rand(Normal(178, 20), N);
 β = rand(Normal(0, 10), N);
 for (α_, β_) ∈ zip(α, β)
-    plot!(x -> α_ + β_ * (x - x_mean); xlims=xlims, c=:black, alpha=0.3, legend=false)
+    plot!(x -> α_ + β_ * (x - x̄); xlims=xlims, c=:black, alpha=0.3, legend=false)
 end
 display(p)
 
@@ -40,7 +40,7 @@ density(β, xlims=(0, 5), bandwidth=0.1)
 p = hline([0, 272]; ylims=(-100, 400), xlabel="weight", ylabel="hegiht")
 title!("β ~ LogNormal(μ = 0, σ = 1)")
 for (α_, β_) ∈ zip(α, β)
-  plot!(x -> α_ + β_ * (x - x_mean); xlims=xlims, c=:black, alpha=0.3, legend=false)
+  plot!(x -> α_ + β_ * (x - x̄); xlims=xlims, c=:black, alpha=0.3, legend=false)
 end
 display(p)
 
