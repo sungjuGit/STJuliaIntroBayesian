@@ -98,7 +98,7 @@ p = @df dN scatter(:weight, :height; xlims=xlims, ylims=ylims, label=false)
 title!("N = $N"; xlab="weight", ylab="height")
 
 x̄N = mean(dN.weight)
-for (α_, β_) ∈ zip(post_df.α, post_df.β)
+for (α_, β_) ∈ zip(samplesN_df.α, samplesN_df.β)
     plot!(x -> α_ + β_ * (x-x̄N); c="black", alpha=0.3, legend=false)
 end
 display(p)
