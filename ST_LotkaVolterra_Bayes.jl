@@ -1,4 +1,4 @@
-using DifferentialEquations, Plots
+using DifferentialEquations, Plots, StatsPlots
 using CSV, DataFrames
 using Turing
 
