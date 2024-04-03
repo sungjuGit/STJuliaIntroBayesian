@@ -2,3 +2,5 @@
 /.vscode
 /Manifest.toml
 /Project.toml
+/ST_Football_simulation.jl
+/ST_GlobeTossing.jl
